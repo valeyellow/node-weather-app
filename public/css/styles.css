@@ -10,7 +10,11 @@
   margin: 0 auto;
 }
 
+h2 {
+  color: #3c3c3c;
+}
+
 img {
-  width: 700px;
-  height: 700px;
+  width: 250px;
+  height: 250px;
 }
