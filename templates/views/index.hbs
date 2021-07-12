@@ -10,8 +10,9 @@
 </head>
 <body>
     <div class="root">
-        <h2>Hello from {{ title }}!</h2>
-        <p>Created by {{ name }}</p>
+        {{>header}}
+        <p>Hello from {{ title }}!</p>
+        {{>footer}}
     </div>
 </body>
 </html>

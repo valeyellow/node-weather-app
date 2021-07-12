@@ -12,15 +12,22 @@ const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const app: Server = express();
 
+// setting up the path
 const publicDirectoryPath: string = path.join(__dirname, "../public");
+const viewsPath: string = path.join(__dirname, "../templates/views");
+const partialsPath: string = path.join(__dirname, "../templates/partials");
 
+// config express to use hbs as view engine and setting up the views path
 app.set('view engine', 'hbs');
+app.set("views", viewsPath);
+
+hbs.registerPartials(partialsPath);
 
 app.use(express.static(publicDirectoryPath));
 
 app.get("", (req: Request, res: Response) => {
     res.render('index', {
-        title: "Weather app",
+        title: "Weather",
         name: "Sumit Mishra"
     });
 })
@@ -34,7 +41,9 @@ app.get("/about", (req: Request, res: Response) => {
 
 app.get("/help", (req: Request, res: Response) => {
     res.render('help', {
-        helpTitle: "We are happy to help!"
+        helpText: "We are happy to help!",
+        title: "Help",
+        name: "Sumit Mishra"
     })
 })
 
