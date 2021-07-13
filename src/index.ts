@@ -47,6 +47,20 @@ app.get("/help", (req: Request, res: Response) => {
     })
 })
 
+app.get("/weather", (req: Request, res: Response) => {
+    if(!req.query.address) {
+        return res.send({
+            error: "Please provide an address!"
+        })
+    }
+    console.log(req.query.address);
+    res.send({
+        forecast: "Some forecast",
+        location: "Some location",
+        address: req.query.address
+    })
+})
+
 app.get("/help/*", (req: Request, res: Response) => {
     res.render("404", {
         title: "404 - Page not found!",
