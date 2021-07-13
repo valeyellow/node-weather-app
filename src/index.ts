@@ -47,4 +47,20 @@ app.get("/help", (req: Request, res: Response) => {
     })
 })
 
+app.get("/help/*", (req: Request, res: Response) => {
+    res.render("404", {
+        title: "404 - Page not found!",
+        errorMessage: "The article you are looking for does not exist :(",
+        name: "Sumit Mishra"
+    })
+})
+
+app.get("*", (req: Request, res: Response) => {
+    res.render("404", {
+        title: "404 - Page not found!",
+        errorMessage: "Oops, page not found!",
+        name: "Sumit Mishra"
+    })
+})
+
 app.listen(PORT, () => console.log(`app is running on port ${PORT}`));
